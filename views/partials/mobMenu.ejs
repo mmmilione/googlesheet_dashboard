@@ -1,0 +1,21 @@
+<div id="menuMobList" class="hidden">
+    <div id="items-container">
+        <p>
+            <a href="dashboard"><i class="fas fa-chart-bar"></i> Dashboard</a>
+        </p>
+        <br>
+        <%if(isAdmin == true){ %>
+            <p>
+                <a href="users"><i class="fas fa-user"></i> Usuarios</a>
+            </p>
+            <br>
+        <% }%>
+        <p>
+            <a href="changePW"><i class="fas fa-key"></i> Password</a>
+        </p>
+        <br>
+        <p>
+            <a href="#" id="mobLogoutBTN"><i class="fas fa-window-close"></i> Logout</a>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Usuarios</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <%- include('partials/nav', {isAdmin: isAdmin}) %>
+    <div class="container">
+        <section class="login-section">
+            <div class="login-box">
+                <h2 class="blue">Agregar Usuario</h2>
+                
+                <form>
+                    <%- include('partials/label', {text: "Correo", icon: "fas fa-envelope"}) %>
+                    <input type="email" id="email" placeholder="fulano@correo.com" required>
+                    <%- include('partials/divider') %>
+                    <%- include('partials/label', {text: "Duraccion del Acceso", icon: "fas fa-stopwatch"}) %>
+                    <select id="selectDuration">
+                        <option value="0">Seleccionar Duraccion</option>
+                        <option value="1">1 Dia</option>
+                        <option value="7">1 Semana</option>
+                        <option value="30">1 Mes</option>
+                        <option value="90">3 Meses</option>
+                        <option value="365">1 Ano</option>
+                    </select>
+                    <%- include('partials/divider') %>
+                    <%- include('partials/feedbacks') %>
+                    <%- include('partials/divider') %>
+                    <%- include('partials/spinner') %>
+                    <%- include('partials/divider') %>
+                    <%- include('partials/btn', {id: "addUserBTN", icon:"", text:"Agregar"}) %>
+                </form>
+            </div>
+        </section>
+    </div>
+    <script src="assets/js/main.js" type="module"></script>
+    <script src="assets/js/newUser.js" type="module"></script>
+</body>
+</html>

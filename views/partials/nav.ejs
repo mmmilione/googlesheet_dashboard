@@ -1,0 +1,24 @@
+<nav>
+    <h1>DGD</h1>
+    <div class="links">
+        <p class="right">
+            <%if(isAdmin === true){%>
+                <a href="users">Usuarios</a>
+            <%}%>
+        </p>
+        <p class="right">
+            <a href="dashboard">Dashboard</a>
+        </p>
+        <p class="right">
+            <a href="changePW">Password</a>
+        </p>
+    </div>
+    <div id="logoutDIV">
+        <%- include('btn', {text: "Logout", icon: "fas fa-window-close", id: "logoutBTN"}) %>
+    </div>
+    <div id="mobMenuDIV">
+        <%- include('btn', {text: "", icon: "fas fa-bars", id: "menuBTN"}) %>
+    </div>
+    <%- include('mobMenu') %>
+
+</nav>

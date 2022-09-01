@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recover</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <section class="login-section">
+            <div class="login-box">
+                <h2 class="blue">Recuperar Password</h2>
+                <p>
+                    <b>
+                        Se va a generar una nueva Password que vas a recibir en seguida al correo indicado.
+                    </b>
+                </p>
+                <form>
+                    <%- include('partials/label', {text: "Correo", icon: "fas fa-envelope"}) %>
+                    <input type="email" id="email" placeholder="micorreo@gmail.com" required>
+                    <%- include('partials/divider') %>
+                    <%- include('partials/feedbacks') %>
+                    <%- include('partials/divider') %>
+                    <%- include('partials/spinner') %>
+                    <%- include('partials/divider') %>
+                    <%- include('partials/btn', {id: "recoverBTN", icon:"", text:"Recuperar"}) %>
+                </form>
+            </div>
+            <p class="center">
+                <a href="./" class="linklog">Volver a Entrar</a>
+            </p>
+        </section>
+        
+    </div>
+    <script src="assets/js/main.js" type="module"></script>
+    <script src="assets/js/recover.js" type="module"></script>
+</body>
+</html>

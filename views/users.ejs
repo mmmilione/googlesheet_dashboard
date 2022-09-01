@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <% const months = ["Ene", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Dic"]; %>
+    <%- include('partials/nav', {isAdmin: isAdmin}) %>
+
+
+    <div class="container">
+        <h1>Users</h1>
+        <%- include('partials/divider')%>
+        <%if(users.length < 1){%>
+            <%- include('partials/noUsers')%>
+        <%}else{%>
+            <table id="usersTable">
+                <tr>
+                    <th class="userTitle">Usuario</th>
+                    <th class="emtpyCell">Acceso Hasta</th>
+                    <th class="extCell">Extender Acceso (dias)</th>
+                    <th class="delCell"></th>
+                </tr>
+                <%for(let i = 0; i < users.length; i++){%>
+                    <tr id="<%= users[i]._id %>">
+                        <td><%= users[i].email %></td>
+                        <% const d = new Date(users[i].expiry); %>
+                        <td>
+                            <span data-expiry-show="<%= users[i]._id %>">
+                                <%= d.getDate()%> <%= months[d.getMonth()]%> <%= d.getFullYear() %>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="success center extendBTN" data-target="<%=users[i]._id%>" data-extension="1">
+                                <i class="fas fa-plus"></i> 1
+                            </span>
+
+                            <span class="success center extendBTN" data-target="<%=users[i]._id%>" data-extension="7">
+                                <i class="fas fa-plus"></i> 7
+                            </span>
+
+                            <span class="success center extendBTN" data-target="<%=users[i]._id%>" data-extension="30">
+                                <i class="fas fa-plus"></i> 30
+                            </span>
+
+                            <span class="success center extendBTN" data-target="<%=users[i]._id%>" data-extension="90">
+                                <i class="fas fa-plus"></i> 90
+                            </span>
+                            <span class="success center extendBTN" data-target="<%=users[i]._id%>" data-extension="365">
+                                <i class="fas fa-plus"></i> 365
+                            </span>
+                        </td>
+                        <td>
+                            <span class="error center deleteBTN" data-target="<%=users[i]._id%>" >
+                                <i class="fas fa-trash"></i>
+                            </span>
+                        </td>
+                    </tr>
+                <%}%>
+            </table>
+            
+        <%}%>
+        <%- include('partials/divider')%>
+        <%- include('partials/btn', {text: "Agregar Usuario", icon: "fas fa-plus", id:"goAddBTN"})%>
+        <%- include('partials/bigLoader')%>
+        <%- include('partials/successToast')%>
+        <%- include('partials/errorToast')%>
+    </div>
+    <script src="assets/js/main.js" type="module"></script>
+    <script src="assets/js/users.js" type="module"></script>
+
+</body>
+</html>
